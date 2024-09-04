@@ -1,0 +1,41 @@
+#--- Misc -------------------------
+.DS_Store
+**/_archives
+crash.log
+logs/
+#--- Terraform ----------------------
+# Local .terraform directories
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.terraform.*
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rcm
+outputs.tf
+#--- Project ------------------------
+config.yaml
+backup
+sdwanlab-edge-*
+#--- python -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+#--- venv ---------------------------
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+#--- IDE project files --------------
+.vscode/
+*.code-workspace
+.idea
+payloads
+requests/devices.json

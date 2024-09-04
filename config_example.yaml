@@ -1,0 +1,31 @@
+
+# Global
+cloud_provider: aws
+name: sdwanlab-region1
+organization_name: <ORG-NAME>
+admin_username: admin
+admin_password: <PASSWORD>
+vbond_transport_private_ip: 1.1.1.1
+vbond_transport_public_ip: 1.1.1.1
+results_dir: ../
+#
+# Select C8000v to deploy
+edge_instances:
+  - hostname: sdwanlab-edge-1
+    uuid: C8K-XXXX-XXXX-XXXX-XXXX
+    otp: XXXX
+    site_id: "101"
+    system_ip: 192.168.101.1
+    vbond: 192.168.3.1
+#
+# Cloud configuration
+cloud:
+  cloud_region: eu-west-3
+  availability_zone: eu-west-3a
+  address_space: 10.1.0.0/16
+  subnet_transport_prefix: 10.1.11.0/24
+  subnet_service_prefix: 10.1.12.0/24
+  transport_ip: 10.1.11.100
+  service_ip: 10.1.12.100
+  image_id: ami-xxxxxxxxxxxx
+  instance_type: c5n.large
