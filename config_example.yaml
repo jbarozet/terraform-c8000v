@@ -1,22 +1,19 @@
 
 # Global
-cloud_provider: aws
-name: sdwanlab-region1
-organization_name: <ORG-NAME>
-admin_username: admin
-admin_password: <PASSWORD>
-vbond_transport_private_ip: 1.1.1.1
-vbond_transport_public_ip: 1.1.1.1
-results_dir: ../
+name: sdwan
 #
 # Select C8000v to deploy
 edge_instances:
-  - hostname: sdwanlab-edge-1
+  - hostname: edge-1
     uuid: C8K-XXXX-XXXX-XXXX-XXXX
     otp: XXXX
     site_id: "101"
     system_ip: 192.168.101.1
+    organization_name: <ORG_NAME>
     vbond: 192.168.3.1
+    vbond_port: 12346
+    admin_username: <USERNAME>
+    admin_password: <PASSWORD>
 #
 # Cloud configuration
 cloud:

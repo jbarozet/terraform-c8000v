@@ -1,8 +1,7 @@
 # Create NICs
 
-# locals {
-#   config = yamldecode(file("${path.module}/config.yaml"))
-# }
+
+# PARAMETERS
 
 variable "config_file" {
   default = "../config.yaml"
@@ -13,30 +12,13 @@ locals {
   config       = yamldecode(local.yaml_content)
 }
 
-
-
 # CATALYST 8000v
 
 resource "aws_instance" "c8000v" {
   ami               = local.config.aws.image_id
   instance_type     = local.config.aws.instance_type
   availability_zone = local.config.aws.availability_zone
-  # user_data         = file("playbooks/cloudinit/sdwanlab-edge-1")
-  # user_data = file(local.config.edge_instances[0].hostname)
-  user_data = templatefile("../cloud_init.tftpl",
-    {
-      hostname          = local.config.edge_instances[0].hostname
-      uuid              = local.config.edge_instances[0].uuid
-      otp               = local.config.edge_instances[0].otp
-      site_id           = local.config.edge_instances[0].site_id
-      system_ip         = local.config.edge_instances[0].system_ip
-      organization_name = local.config.edge_instances[0].organization_name
-      vbond             = local.config.edge_instances[0].vbond
-      vbond_port        = local.config.edge_instances[0].vbond_port
-      admin_username    = local.config.edge_instances[0].admin_username
-      admin_password    = local.config.edge_instances[0].admin_password
-
-  })
+  user_data         = templatefile("../cloud_init.tftpl", local.config.edge_instances[0])
 
   network_interface {
     device_index         = 0

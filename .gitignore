@@ -15,8 +15,9 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 .terraformrc
-terraform.rcm
-outputs.tf
+*terraform.rcm
+*outputs.tf
+*user_data_content.txt
 #--- Project ------------------------
 config.yaml
 backup
