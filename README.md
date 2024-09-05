@@ -4,6 +4,8 @@
 
 This is to instantiate C8000v in AWS.
 
+For more information on bootstrap file used to instantiate the C8000v, read this [doc](docs/C8000v-bootstrap.md)
+
 ## Installation for Python and Ansible
 
 Setting your python virtual environment.
