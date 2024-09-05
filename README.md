@@ -2,51 +2,21 @@
 
 ## Overview
 
-This is to instantiate C8000v in AWS.
+This repository sets up the C8000v in controller mode (SD-WAN mode) on AWS using Terraform.
 
-For more information on bootstrap file used to instantiate the C8000v, read this [doc](docs/C8000v-bootstrap.md)
-
-## Installation for Python and Ansible
-
-Setting your python virtual environment.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt --no-deps
-```
-
-And then install ansible requirements:
-
-```bash
-ansible-galaxy install -r requirements.yml
-```
-
-## Activate environment
-
-```shell
-source .venv/bin/activate
-```
+For more information on bootstrap file used to instantiate the C8000v, read this [doc](./docs/C8000v-bootstrap.md)
 
 ## Get Catalyst 8000v parameters
 
-Get Catalyst 8000v UUID
+Get a free UUID and token from SD-WAN Manager.
 
-- Get a free UUID and token from SD-WAN Manager
-- Copy `config_example.yaml` to `config.yaml`
-- Fill in parameters in `config.yaml`
+Copy `config_example.yaml` to `config.yaml`.
 
-## Generate bootstrap configuration file for C8000v
+Fill in parameters in `config.yaml`.
 
-Execute:
+## Instantiate C8000v on AWS
 
-```shell
-ansible-playbook playbooks/generate_cloudinit.yml
-```
-
-## Instantiate C8000v
-
-execute:
+Change to `aws` folder and execute:
 
 ```shell
 terraform init

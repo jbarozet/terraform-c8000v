@@ -3,8 +3,8 @@
 
 resource "aws_subnet" "transport" {
   vpc_id            = aws_vpc.instance.id
-  cidr_block        = local.config.cloud.subnet_transport_prefix
-  availability_zone = local.config.cloud.availability_zone
+  cidr_block        = local.config.aws.subnet_transport_prefix
+  availability_zone = local.config.aws.availability_zone
 
   tags = {
     Name = "${local.config.name}-subnet-transport"
@@ -13,8 +13,8 @@ resource "aws_subnet" "transport" {
 
 resource "aws_subnet" "service" {
   vpc_id            = aws_vpc.instance.id
-  cidr_block        = local.config.cloud.subnet_service_prefix
-  availability_zone = local.config.cloud.availability_zone
+  cidr_block        = local.config.aws.subnet_service_prefix
+  availability_zone = local.config.aws.availability_zone
 
   tags = {
     Name = "${local.config.name}-subnet-service"
@@ -58,7 +58,7 @@ resource "aws_route_table_association" "network_transport" {
 resource "aws_network_interface" "network_transport" {
   subnet_id         = aws_subnet.transport.id
   security_groups   = [aws_security_group.transport.id]
-  private_ips       = [local.config.cloud.transport_ip]
+  private_ips       = [local.config.aws.transport_ip]
   source_dest_check = false
   description       = "transport"
 
@@ -70,7 +70,7 @@ resource "aws_network_interface" "network_transport" {
 resource "aws_network_interface" "network_service" {
   subnet_id         = aws_subnet.service.id
   security_groups   = [aws_security_group.transport.id]
-  private_ips       = [local.config.cloud.service_ip]
+  private_ips       = [local.config.aws.service_ip]
   source_dest_check = false
   description       = "service"
 

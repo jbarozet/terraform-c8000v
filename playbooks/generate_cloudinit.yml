@@ -1,8 +1,0 @@
----
-- name: Generate bootstrap configuration for defined edges
-  hosts: localhost
-  gather_facts: false
-  vars_files:
-    - ../config.yaml
-  roles:
-    - cisco.sdwan_deployment.template_cloudinit
