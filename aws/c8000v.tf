@@ -56,19 +56,7 @@ resource "aws_instance" "c8000v" {
 
 # Save user_data content to a file
 resource "local_file" "user_data_file" {
-  content = templatefile("../cloud_init.tftpl",
-    {
-      hostname          = local.config.edge_instances[0].hostname
-      uuid              = local.config.edge_instances[0].uuid
-      otp               = local.config.edge_instances[0].otp
-      site_id           = local.config.edge_instances[0].site_id
-      system_ip         = local.config.edge_instances[0].system_ip
-      organization_name = local.config.edge_instances[0].organization_name
-      vbond             = local.config.edge_instances[0].vbond
-      vbond_port        = local.config.edge_instances[0].vbond_port
-      admin_username    = local.config.edge_instances[0].admin_username
-      admin_password    = local.config.edge_instances[0].admin_password
-  })
+  content  = templatefile("../cloud_init.tftpl", local.config.edge_instances[0])
   filename = "${path.module}/user_data_content.txt"
 }
 

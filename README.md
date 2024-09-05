@@ -8,7 +8,7 @@ For more information on bootstrap file used to instantiate the C8000v, read this
 
 ## Get Catalyst 8000v parameters
 
-Get a free UUID and token from SD-WAN Manager.
+Get a free UUID and token from SD-WAN Manager (Go to Configuration > Certificates > WAN Edges)
 
 Copy `config_example.yaml` to `config.yaml`.
 
