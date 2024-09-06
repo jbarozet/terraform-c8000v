@@ -6,9 +6,23 @@ name: sdwan
 edge_instances:
   - hostname: edge-1
     uuid: C8K-XXXX-XXXX-XXXX-XXXX
-    otp: XXXX
+    otp: xxxxxxxxxxxx
     site_id: "101"
     system_ip: 192.168.101.1
+    transport_ip: 10.1.11.101
+    service_ip: 10.1.12.101
+    organization_name: <ORG_NAME>
+    vbond: 192.168.3.1
+    vbond_port: 12346
+    admin_username: <USERNAME>
+    admin_password: <PASSWORD>
+  - hostname: edge-2
+    uuid: C8K-YYYY-YYYY-YYYY-YYYY
+    otp: yyyyyyyyyyyyy
+    site_id: "102"
+    system_ip: 192.168.102.1
+    transport_ip: 10.1.11.102
+    service_ip: 10.1.12.102
     organization_name: <ORG_NAME>
     vbond: 192.168.3.1
     vbond_port: 12346
@@ -22,7 +36,5 @@ cloud:
   address_space: 10.1.0.0/16
   subnet_transport_prefix: 10.1.11.0/24
   subnet_service_prefix: 10.1.12.0/24
-  transport_ip: 10.1.11.100
-  service_ip: 10.1.12.100
   image_id: ami-xxxxxxxxxxxx
   instance_type: c5n.large
