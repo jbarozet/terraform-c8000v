@@ -53,28 +53,3 @@ resource "aws_route_table_association" "network_transport" {
   route_table_id = aws_route_table.network_transport.id
 }
 
-# INTERFACES
-
-resource "aws_network_interface" "network_transport" {
-  subnet_id         = aws_subnet.transport.id
-  security_groups   = [aws_security_group.transport.id]
-  private_ips       = [local.config.aws.transport_ip]
-  source_dest_check = false
-  description       = "transport"
-
-  tags = {
-    Name = "${local.config.name}-interface-transport"
-  }
-}
-
-resource "aws_network_interface" "network_service" {
-  subnet_id         = aws_subnet.service.id
-  security_groups   = [aws_security_group.transport.id]
-  private_ips       = [local.config.aws.service_ip]
-  source_dest_check = false
-  description       = "service"
-
-  tags = {
-    Name = "${local.config.name}-interface-service"
-  }
-}
