@@ -29,7 +29,7 @@ edge_instances:
     admin_username: <USERNAME>
     admin_password: <PASSWORD>
 #
-# Cloud configuration
+# AWWS configuration
 cloud:
   cloud_region: eu-west-3
   availability_zone: eu-west-3a
@@ -38,3 +38,17 @@ cloud:
   subnet_service_prefix: 10.1.12.0/24
   image_id: ami-xxxxxxxxxxxx
   instance_type: c5n.large
+# AWS configuration
+azure:
+  subscription_id: <your_subscription_id>
+  cloud_region: westeurope
+  location: francecentral
+  address_space: 10.1.0.0/16
+  subnet_transport_prefix: 10.1.11.0/24
+  subnet_service_prefix: 10.1.12.0/24
+  image_publisher: cisco
+  image_offer: cisco-c8000v-byol
+  image_sku: 17_14_01a-byol
+  image_version: latest
+  vm_size: Standard_D2_v2
+  image_id: cisco-c8000v-byol

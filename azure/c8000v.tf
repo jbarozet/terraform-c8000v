@@ -14,15 +14,15 @@ locals {
 # CATALYST 8000v
 
 resource "azurerm_linux_virtual_machine" "c8000v" {
-  count               = length(local.config.edge_instances)
-  name                = "${local.config.name}-${count.index}"
-  resource_group_name = azurerm_resource_group.instance.name
-  location            = azurerm_resource_group.instance.location
-  size                = local.config.azure.vm_size
-  admin_username      = "${local.config.edge_instances[count.index].admin_username}"
-  admin_password      = "${local.config.edge_instances[count.index].admin_password}"
+  count                           = length(local.config.edge_instances)
+  name                            = "${local.config.name}-${count.index}"
+  resource_group_name             = azurerm_resource_group.instance.name
+  location                        = azurerm_resource_group.instance.location
+  size                            = local.config.azure.vm_size
+  admin_username                  = local.config.edge_instances[count.index].admin_username
+  admin_password                  = local.config.edge_instances[count.index].admin_password
   disable_password_authentication = false
-  custom_data         = base64encode(templatefile("../cloud_init.tftpl", local.config.edge_instances[count.index]))
+  custom_data                     = base64encode(templatefile("../cloud_init.tftpl", local.config.edge_instances[count.index]))
 
   network_interface_ids = [
     azurerm_network_interface.network_transport[count.index].id,
@@ -30,13 +30,13 @@ resource "azurerm_linux_virtual_machine" "c8000v" {
   ]
 
   plan {
-    name      = local.config.azure.image_sku  // This should match the SKU
-    product   = local.config.azure.image_offer  // This should match the offer
+    name      = local.config.azure.image_sku   // This should match the SKU in source image reference
+    product   = local.config.azure.image_offer // This should match the offer in source image reference
     publisher = "cisco"
   }
 
   os_disk {
-    name = "${local.config.name}-${count.index}-osdisk"
+    name                 = "${local.config.name}-${count.index}-osdisk"
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
@@ -128,4 +128,3 @@ resource "azurerm_network_interface_security_group_association" "service_nsg_ass
   network_interface_id      = azurerm_network_interface.network_service[count.index].id
   network_security_group_id = azurerm_network_security_group.service.id
 }
-

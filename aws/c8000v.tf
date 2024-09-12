@@ -46,7 +46,7 @@ resource "local_file" "user_data_file" {
 # INTERFACES
 
 resource "aws_network_interface" "network_transport" {
-  count    = length(local.config.edge_instances)
+  count             = length(local.config.edge_instances)
   subnet_id         = aws_subnet.transport.id
   security_groups   = [aws_security_group.transport.id]
   private_ips       = [local.config.edge_instances[count.index].transport_ip]

@@ -21,7 +21,7 @@ override.tf.json
 #--- Project ------------------------
 config.yaml
 backup
-sdwanlab-edge-*
+**/custom_data_*
 #--- python -------------------------
 __pycache__/
 *.py[cod]
