@@ -14,11 +14,11 @@ Get a free UUID and token from SD-WAN Manager (Go to Configuration > Certificate
 
 Fill in parameters in `config.yaml`.
 
-## Instantiate C8000v on AWS
+## Deployment of Cisco Catalyst 8000v on AWS
 
 Change to `aws` folder.
 
-### Deploy C8000v
+### Deploy C8000v (AWS)
 
 Execute:
 
@@ -28,9 +28,9 @@ terraform plan
 terraform apply --auto-approve
 ```
 
-### Delete C8000v
+### Delete C8000v (AWS)
 
-Change to `aws` folder and execute:
+Execute:
 
 ```shell
 terraform destroy --auto-approve
@@ -39,6 +39,28 @@ terraform destroy --auto-approve
 Next, you'll need to manually decommission the associated UUID in SD-WAN Manager. To do this, navigate to Configuration > WAN Edges, click the three-dot menu next to the instance, and select Decommission. This script does not handle deprovisioning.
 
 ## Deployment of Cisco Catalyst 8000v on Azure
+
+Change to `azure` folder.
+
+### Deploy C8000v (Azure)
+
+Execute:
+
+```shell
+terraform init
+terraform plan
+terraform apply --auto-approve
+```
+
+### Delete C8000v (Azure)
+
+Execute:
+
+```shell
+terraform destroy --auto-approve
+```
+
+Next, you'll need to manually decommission the associated UUID in SD-WAN Manager. To do this, navigate to Configuration > WAN Edges, click the three-dot menu next to the instance, and select Decommission. This script does not handle deprovisioning.
 
 ### Find Azure Cisco Images
 
