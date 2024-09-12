@@ -1,4 +1,4 @@
-# Deploy C8000v on AWS
+# Deploy C8000v on AWS and Azure
 
 ## Overview
 
