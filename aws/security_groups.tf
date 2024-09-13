@@ -25,12 +25,12 @@ resource "aws_security_group" "transport" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 830 # allow Netconf
-    to_port     = 830
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  # ingress {
+  #   from_port   = 830 # allow Netconf
+  #   to_port     = 830
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
 
   ingress {
     from_port   = 12346 # allow dtls
@@ -66,4 +66,3 @@ resource "aws_security_group" "service" {
     Name = "${local.config.name}-sg-service"
   }
 }
-
