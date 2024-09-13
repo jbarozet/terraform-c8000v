@@ -22,6 +22,7 @@ override.tf.json
 config.yaml
 backup
 **/custom_data_*
+**/user_data_content*
 #--- python -------------------------
 __pycache__/
 *.py[cod]
