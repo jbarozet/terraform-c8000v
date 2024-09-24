@@ -20,6 +20,7 @@ override.tf.json
 *user_data_content.txt
 #--- Project ------------------------
 config.yaml
+config-backup*.yaml
 backup
 **/custom_data_*
 **/user_data_content*
